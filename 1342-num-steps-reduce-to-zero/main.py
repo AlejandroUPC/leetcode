@@ -6,7 +6,6 @@ def solution(num: int) -> int:
         else:
             num -= 1
         cter += 1
-        print(f"{num=} on {cter=}.")
     return cter
 
 

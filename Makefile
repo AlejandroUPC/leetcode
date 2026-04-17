@@ -15,5 +15,17 @@ new:
 	@cp -R "$(TEMPLATE_DIR)" "$(NAME)"
 	@echo "Created $(NAME)"
 
+.PHONY: tests
+
+tests:
+	@set -eu; \
+	tests="$$(find . -type f -name 'test.py' ! -path './.git/*' ! -path './.venv/*' ! -path './venv/*' ! -path '*/__pycache__/*' ! -path './templates/*')"; \
+	if [ -z "$$tests" ]; then echo "No test.py files found."; exit 1; fi; \
+	for f in $$tests; do \
+		echo "==> $$f"; \
+		if python3 "$$f"; then echo "OK: $$f"; else echo "FAIL: $$f"; exit 1; fi; \
+	done; \
+	echo "ALL OK"
+
 %:
 	@:

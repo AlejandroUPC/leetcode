@@ -9,4 +9,3 @@ def run_tests() -> None:
 
 if __name__ == "__main__":
     run_tests()
-    print("ok")
