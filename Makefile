@@ -1,4 +1,5 @@
 TEMPLATE_DIR := templates/problem
+TEMPLATE_P_DIR := templates/pattern
 NAME := $(word 2,$(MAKECMDGOALS))
 
 .PHONY: new
@@ -14,6 +15,18 @@ new:
 	fi
 	@cp -R "$(TEMPLATE_DIR)" "$(NAME)"
 	@echo "Created $(NAME)"
+
+newp:
+	@if [ -z "$(NAME)" ]; then \
+		echo "Usage: make newp two-pointer"; \
+		exit 1; \
+	fi
+	@if [ -e "patterns/$(NAME)" ]; then \
+		echo "Error: patterns/$(NAME) already exists."; \
+		exit 1; \
+	fi
+	@cp -R "$(TEMPLATE_P_DIR)" "patterns/$(NAME)"
+	@echo "Created pattern patterns/$(NAME)"
 
 .PHONY: tests
 
