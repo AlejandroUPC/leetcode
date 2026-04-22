@@ -3,7 +3,7 @@
 This repo contains my LeetCode solutions in Python. Each problem lives in its own folder:
 
 ```
-001-two-sum/
+exercises/001-two-sum/
   README.md
   main.py
   test.py   # optional
@@ -19,6 +19,26 @@ This repo contains my LeetCode solutions in Python. Each problem lives in its ow
 From a problem folder:
 
 ```bash
+cd exercises/001-two-sum
 python main.py
 python test.py
+```
+
+## Makefile
+Create a new exercise from the template:
+
+```bash
+make new 001-two-sum
+```
+
+Create a new pattern folder:
+
+```bash
+make newp two-pointer
+```
+
+Run all `test.py` files:
+
+```bash
+make tests
 ```

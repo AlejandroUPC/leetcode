@@ -1,5 +1,5 @@
-TEMPLATE_DIR := templates/problem
 TEMPLATE_P_DIR := templates/pattern
+EXERCISES_DIR := exercises
 NAME := $(word 2,$(MAKECMDGOALS))
 
 .PHONY: new
@@ -9,12 +9,12 @@ new:
 		echo "Usage: make new 001-two-sum"; \
 		exit 1; \
 	fi
-	@if [ -e "$(NAME)" ]; then \
-		echo "Error: $(NAME) already exists."; \
+	@mkdir -p "$(EXERCISES_DIR)"
+	@if [ -e "$(EXERCISES_DIR)/$(NAME)" ]; then \
+		echo "Error: $(EXERCISES_DIR)/$(NAME) already exists."; \
 		exit 1; \
 	fi
-	@cp -R "$(TEMPLATE_DIR)" "$(NAME)"
-	@echo "Created $(NAME)"
+	@$(MAKE) -C "$(EXERCISES_DIR)" new "$(NAME)"
 
 newp:
 	@if [ -z "$(NAME)" ]; then \
