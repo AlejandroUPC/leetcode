@@ -26,6 +26,7 @@ This way we repeat work constantly, but if we use two pointers approach we can:
 One of the core intuitions is that we can eliminate a lot (hopefully) of the search space by inteligently moving the pointers.
 
 Two pointers though is easier to understand when used in a sorted array (not always the case) as then whether moving left or right, gives some meaning to the direction.
+The gola is not to explore all the space of possible solutions but discard large portions of them safely.
 
 ---
 
@@ -55,7 +56,7 @@ Do the custom logic to evaluate both pointers:
   3. Move one pointer based on logic
   4. Repeat until pointers meet or condition is staisfied
 
-**Critical detail**: Typically try to move just one pointer at a time, two might be risky.
+**Critical detail**: Typically try to move just one pointer at a time, two might be risky and every pointer movement must make sure we are not discarding any possible optimal solution.
 
 ---
 

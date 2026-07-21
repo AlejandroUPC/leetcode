@@ -1,5 +1,6 @@
 TEMPLATE_P_DIR := templates/pattern
 EXERCISES_DIR := exercises
+TEMPLATE_EXERCISE_DIR := templates/exercise
 NAME := $(word 2,$(MAKECMDGOALS))
 
 .PHONY: new
@@ -14,7 +15,9 @@ new:
 		echo "Error: $(EXERCISES_DIR)/$(NAME) already exists."; \
 		exit 1; \
 	fi
-	@$(MAKE) -C "$(EXERCISES_DIR)" new "$(NAME)"
+	@mkdir -p "$(EXERCISES_DIR)/$(NAME)"
+	@cp -R "$(TEMPLATE_EXERCISE_DIR)/." "$(EXERCISES_DIR)/$(NAME)/"
+	@echo "Created exercise $(EXERCISES_DIR)/$(NAME)"
 
 newp:
 	@if [ -z "$(NAME)" ]; then \
