@@ -219,6 +219,15 @@ Scenarios where this pattern is not appropriate:
 ### Phase 4 — Stretch
 - [3Sum](https://leetcode.com/problems/3sum/)
 
+### Phase 5 — Variations
+- [3Sum Closest](https://leetcode.com/problems/3sum-closest/)
+- [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
+
+
+### Phase 6 — Capstone
+- [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
+
+
 - Observations:
   - 
 - Difficulties encountered:

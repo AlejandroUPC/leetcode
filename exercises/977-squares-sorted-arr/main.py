@@ -3,18 +3,20 @@ def solution(nums: list[int]) -> list[int]:
 
 
 def solution_2(nums: list[int]) -> list[int]:
-    sorted_squares: list[int] = [0]
+    sorted_squares: list[int] = [0] * len(nums)
     left = 0
     right = len(nums) - 1
+    insert_at = len(nums) - 1
     while left <= right:
         left_square: int = nums[left] ** 2
         right_square: int = nums[right] ** 2
         if left_square >= right_square:
+            sorted_squares[insert_at] = left_square
             left += 1
-            sorted_squares.insert(0, left_square)
         else:
-            sorted_squares.insert(0, right_square)
+            sorted_squares[insert_at] = right_square
             right -= 1
+        insert_at -= 1
     return sorted_squares
 
 

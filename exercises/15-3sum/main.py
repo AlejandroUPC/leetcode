@@ -1,4 +1,4 @@
-def solution(nums: list[int]) -> list[int]:
+def solution(nums: list[int]) -> list[list[int]]:
     nums.sort()
     res = []
 

@@ -15,8 +15,8 @@ def solution_2(nums1: list[int], m: int, nums2: list[int], n: int) -> list[int]:
         j >= 0
     ):  # stop condition is to consume nums2, smalelr array that we have to fit all numbers into nums1
         if (
-            nums1[i] >= nums2[j] and i >= 0
-        ):  # we also need the index cehck, we can never go -1, if we reach this point means we can just fill nums1 with nums2
+            i >= 0 and nums1[i] >= nums2[j]
+        ):  # if nums1 is exhausted, the remaining values come from nums2
             to_move: int = nums1[i]
             i -= 1  # we consume, because its a sorted array we know we can move to next number
         else:
